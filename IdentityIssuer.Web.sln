@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{3DAFEDF3-7129-4896-98BF-FDD7149798D4}"
 ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
+	Readme.md = Readme.md
 EndProjectSection
 EndProject
 Global
