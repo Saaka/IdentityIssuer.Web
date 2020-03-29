@@ -3,7 +3,7 @@ import "./App.scss";
 
 function App(props) {
     return (
-        <section className="hero has-background-black is-fullheight">
+        <section className="hero has-background-gradient is-fullheight">
             <div className="hero-body">
                 <div className="container center">
                     <figure className="image is-128x128 has-border">
