@@ -17,6 +17,7 @@
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\.env" />
+        <Content Include="ClientApp\jsconfig.json" />
         <Content Include="ClientApp\src\assets\_style.scss" />
         <Content Include="ClientApp\src\layouts\App\App.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.scss" />
