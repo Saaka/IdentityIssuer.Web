@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import {App} from "./App";
+import {Index} from "layouts/exports";
 
 require("dotenv").config();
 
@@ -10,7 +10,7 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
     <BrowserRouter basename={baseUrl}>
-        <App/>
+        <Index/>
     </BrowserRouter>,
     rootElement);
 

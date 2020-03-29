@@ -5,8 +5,9 @@
   "dependencies": {
     "babel-eslint": "10.1.0",
     "bulma": "^0.8.1",
-    "node-sass": "^4.13.1",
+    "dotenv": "^8.2.0",
     "merge": "^1.2.1",
+    "node-sass": "^4.13.1",
     "oidc-client": "^1.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
