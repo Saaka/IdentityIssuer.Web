@@ -1,0 +1,6 @@
+@import "src/assets/style";
+
+
+.has-border {
+  border: 2px solid findColorInvert($black);
+}

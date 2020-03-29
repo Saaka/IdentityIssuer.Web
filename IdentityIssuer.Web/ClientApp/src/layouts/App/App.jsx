@@ -5,9 +5,9 @@ function App(props) {
     return (
         <section className="hero has-background-black is-fullheight">
             <div className="hero-body">
-                <div className="container">
-                    <figure className="image center">
-                        <img src="https://picsum.photos/256/128/" alt="Logo" style={{maxWidth: "256px"}}/>
+                <div className="container center">
+                    <figure className="image is-128x128 has-border">
+                        <img src="https://picsum.photos/128/128/" alt="Logo" style={{maxWidth: "256px"}} />
                     </figure>
                 </div>
             </div>
