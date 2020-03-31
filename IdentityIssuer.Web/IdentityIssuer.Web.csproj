@@ -30,7 +30,12 @@
         <Content Include="ClientApp\src\layouts\exports.js" />
         <Content Include="ClientApp\src\layouts\Index\Index.jsx" />
         <Content Include="ClientApp\src\layouts\Index\Index.scss" />
+        <Content Include="ClientApp\src\routes\appRoutes.js" />
         <Content Include="ClientApp\src\routes\names.js" />
+        <Content Include="ClientApp\src\Services.js" />
+        <Content Include="ClientApp\src\services\AuthService.js" />
+        <Content Include="ClientApp\src\services\Constants.js" />
+        <Content Include="ClientApp\src\services\UserTokenService.js" />
         <Content Include="ClientApp\src\views\exports.js" />
         <Content Include="ClientApp\src\views\Login\Login.jsx" />
         <Content Include="ClientApp\src\views\Login\Login.scss" />
