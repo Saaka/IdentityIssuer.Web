@@ -34,7 +34,9 @@
         <Content Include="ClientApp\src\routes\names.js" />
         <Content Include="ClientApp\src\Services.js" />
         <Content Include="ClientApp\src\services\AuthService.js" />
+        <Content Include="ClientApp\src\services\ConfigService.js" />
         <Content Include="ClientApp\src\services\Constants.js" />
+        <Content Include="ClientApp\src\services\HttpService.js" />
         <Content Include="ClientApp\src\services\UserTokenService.js" />
         <Content Include="ClientApp\src\views\exports.js" />
         <Content Include="ClientApp\src\views\Login\Login.jsx" />
