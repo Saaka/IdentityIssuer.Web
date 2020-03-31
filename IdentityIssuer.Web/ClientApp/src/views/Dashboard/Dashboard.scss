@@ -1,5 +1,11 @@
 @import "src/assets/variables";
 
+h1 {
+  color: $white;
+}
 .has-border {
   border: 2px solid findColorInvert($black);
+}
+.login-container {
+  flex-direction: column;
 }
