@@ -21,9 +21,12 @@
         <Content Include="ClientApp\src\assets\font-awesome.js" />
         <Content Include="ClientApp\src\assets\_debug.scss" />
         <Content Include="ClientApp\src\assets\_style.scss" />
-        <Content Include="ClientApp\src\components\exports.js" />
+        <Content Include="ClientApp\src\assets\_variables.scss" />
+        <Content Include="ClientApp\src\components\AuthRoute\AuthRoute.jsx" />
+        <Content Include="ClientApp\src\components\common.js" />
         <Content Include="ClientApp\src\components\Loader\Loader.jsx" />
         <Content Include="ClientApp\src\components\Loader\Loader.scss" />
+        <Content Include="ClientApp\src\components\navigation.js" />
         <Content Include="ClientApp\src\layouts\App\App.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.scss" />
         <Content Include="ClientApp\src\layouts\App\App.test.js" />
@@ -40,6 +43,8 @@
         <Content Include="ClientApp\src\services\HttpService.js" />
         <Content Include="ClientApp\src\services\TenantService.js" />
         <Content Include="ClientApp\src\services\UserTokenService.js" />
+        <Content Include="ClientApp\src\views\Dashboard\Dashboard.jsx" />
+        <Content Include="ClientApp\src\views\Dashboard\Dashboard.scss" />
         <Content Include="ClientApp\src\views\exports.js" />
         <Content Include="ClientApp\src\views\Login\Login.jsx" />
         <Content Include="ClientApp\src\views\Login\Login.scss" />

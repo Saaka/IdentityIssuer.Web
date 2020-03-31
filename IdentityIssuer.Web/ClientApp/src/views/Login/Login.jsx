@@ -5,9 +5,13 @@ function Login(props) {
 
 
     return (
-        <div className="container">
-            <h1>Login!</h1>
-        </div>
+        <section className="hero has-background-gradient is-fullheight">
+            <div className="hero-body">
+                <div className="container center">
+                    <h1 className="is-size-1">LOGIN!</h1>
+                </div>
+            </div>
+        </section>
     );
 }
 

@@ -1,17 +1,28 @@
 import React from 'react';
+import {Switch, Route, Redirect} from "react-router";
+import {AuthRoute} from "components/navigation";
+import appRoutes from "routes/appRoutes";
 import "./App.scss";
 
 function App(props) {
     return (
-        <section className="hero has-background-gradient is-fullheight">
-            <div className="hero-body">
-                <div className="container center">
-                    <figure className="image is-128x128 has-border">
-                        <img src="https://picsum.photos/128/128/" alt="Logo" style={{maxWidth: "256px"}} />
-                    </figure>
-                </div>
-            </div>
-        </section>
+        <div>
+            <Switch>
+                {appRoutes.map((prop, key) => {
+                    if (prop.redirect)
+                        return (<Redirect from={prop.path} to={prop.to} key={key}/>);
+                    else if (prop.useAuth)
+                        if (prop.requireAdmin)
+                            return (<AuthRoute path={prop.path} component={prop.component} name={prop.name} key={key}
+                                               user={props.user}/>);
+                        else
+                            return (<AuthRoute path={prop.path} component={prop.component} name={prop.name} key={key}
+                                              user={props.user}/>);
+                    else
+                        return <Route path={prop.path} component={prop.component} name={prop.name} key={key}/>;
+                })}
+            </Switch>
+        </div>
     );
 }
 

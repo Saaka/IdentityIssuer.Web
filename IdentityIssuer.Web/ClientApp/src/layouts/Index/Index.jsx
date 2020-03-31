@@ -3,7 +3,7 @@ import {Route, Redirect} from "react-router-dom";
 import {AuthService, TenantService} from "Services";
 import {App} from "layouts/exports";
 import {RouteNames} from "routes/names";
-import {Loader} from "components/exports";
+import {Loader} from "components/common";
 import {Login} from "views/exports";
 
 function Index(props) {
@@ -29,7 +29,7 @@ function Index(props) {
             .catch(onError)
             .finally(hideLoader);
     }
-    
+
     function updateUser(user) {
         setUser({
             ...user,
@@ -43,11 +43,17 @@ function Index(props) {
         });
         return authService.logout()
     }
-    
+
     function onError(err) {
         console.error(err);
         removeUser();
     }
+
+    const onLogin = (user) => {
+        hideLoader();
+        updateUser(user);
+    };
+    const onLogout = () => removeUser();
 
     const hideLoader = () => setIsLoading(false);
 
@@ -56,11 +62,17 @@ function Index(props) {
             <span>
                 <Route exact
                        path={RouteNames.Root}
-                       render={(props) => <Redirect to={RouteNames.App} from={props.path} {...props}/>}/>
+                       render={(props) => <Redirect to={RouteNames.App}
+                                                    from={props.path}
+                                                    {...props} user={user}/>}/>
                 <Route path={RouteNames.Login}
-                       render={(props) => <Login {...props} />}/>
+                       render={(props) => <Login {...props}
+                                                 onLogin={onLogin}
+                                                 onLogout={onLogout}
+                                                 toggleLoader={setIsLoading}
+                                                 user={user}/>}/>
                 <Route path={RouteNames.App}
-                       render={(props) => <App {...props} />}/>
+                       render={(props) => <App {...props} user={user}/>}/>
             </span>
         );
     }
