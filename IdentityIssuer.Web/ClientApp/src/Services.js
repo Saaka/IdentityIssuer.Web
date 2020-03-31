@@ -1,3 +1,4 @@
+export {AuthHttpService} from "services/AuthHttpService";
 export {AuthService} from "services/AuthService";
 export {ConfigService} from "services/ConfigService";
 export {Constants} from "services/Constants";
