@@ -18,8 +18,12 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\.env" />
         <Content Include="ClientApp\jsconfig.json" />
+        <Content Include="ClientApp\src\assets\font-awesome.js" />
         <Content Include="ClientApp\src\assets\_debug.scss" />
         <Content Include="ClientApp\src\assets\_style.scss" />
+        <Content Include="ClientApp\src\components\exports.js" />
+        <Content Include="ClientApp\src\components\Loader\Loader.jsx" />
+        <Content Include="ClientApp\src\components\Loader\Loader.scss" />
         <Content Include="ClientApp\src\layouts\App\App.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.scss" />
         <Content Include="ClientApp\src\layouts\App\App.test.js" />
@@ -27,6 +31,9 @@
         <Content Include="ClientApp\src\layouts\Index\Index.jsx" />
         <Content Include="ClientApp\src\layouts\Index\Index.scss" />
         <Content Include="ClientApp\src\routes\names.js" />
+        <Content Include="ClientApp\src\views\exports.js" />
+        <Content Include="ClientApp\src\views\Login\Login.jsx" />
+        <Content Include="ClientApp\src\views\Login\Login.scss" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     </ItemGroup>
