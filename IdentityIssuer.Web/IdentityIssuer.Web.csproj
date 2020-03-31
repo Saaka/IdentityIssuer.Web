@@ -38,6 +38,7 @@
         <Content Include="ClientApp\src\services\ConfigService.js" />
         <Content Include="ClientApp\src\services\Constants.js" />
         <Content Include="ClientApp\src\services\HttpService.js" />
+        <Content Include="ClientApp\src\services\TenantService.js" />
         <Content Include="ClientApp\src\services\UserTokenService.js" />
         <Content Include="ClientApp\src\views\exports.js" />
         <Content Include="ClientApp\src\views\Login\Login.jsx" />
