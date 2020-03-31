@@ -1,20 +1,55 @@
 import React, {useState, useEffect} from 'react';
 import {Route, Redirect} from "react-router-dom";
+import {AuthService, TenantService} from "Services";
 import {App} from "layouts/exports";
 import {RouteNames} from "routes/names";
 import {Loader} from "components/exports";
 import {Login} from "views/exports";
 
 function Index(props) {
-
+    const authService = new AuthService();
+    const tenantService = new TenantService();
     const [isLoading, setIsLoading] = useState(true);
+    const [user, setUser] = useState({isLoggedIn: false});
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 1000);
-        return () => clearTimeout(timer);
+        let tenant = tenantService.getTenant();
+        if (authService.isLoggedIn() && !!tenant)
+            loadUserData(tenant);
+        else {
+            removeUser();
+            hideLoader();
+        }
     }, []);
+
+    function loadUserData(tenant) {
+        authService
+            .getUser(tenant)
+            .then(updateUser)
+            .catch(onError)
+            .finally(hideLoader);
+    }
+    
+    function updateUser(user) {
+        setUser({
+            ...user,
+            isLoggedIn: true
+        });
+    }
+
+    function removeUser() {
+        setUser({
+            isLoggedIn: false
+        });
+        return authService.logout()
+    }
+    
+    function onError(err) {
+        console.error(err);
+        removeUser();
+    }
+
+    const hideLoader = () => setIsLoading(false);
 
     function renderApp() {
         return (

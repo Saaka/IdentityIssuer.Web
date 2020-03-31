@@ -1,12 +1,16 @@
-import {AuthHttpService, HttpService, Constants, UserTokenService} from 'Services';
+import {AuthHttpService, HttpService, Constants, UserTokenService, TenantService} from "Services";
 
 export class AuthService {
     tokenService = new UserTokenService();
-    authHttpService = new AuthHttpService();
+    tenantService = new TenantService();
+    authHttpService = new AuthHttpService("a");
     httpService = new HttpService();
 
     isLoggedIn = () => this.tokenService.isTokenValid();
-    logout = () => this.tokenService.removeToken();
+    logout = () => {
+        this.tokenService.removeToken();
+        this.tenantService.clearTenant();
+    };
 
     loginWithCredentials = (email, password, tenant) => {
         return this.httpService
@@ -16,24 +20,26 @@ export class AuthService {
             }, tenant)
             .then(this.onLogin);
     };
-    
+
     onLogin = (resp) => {
-      this.tokenService
-          .setToken(resp.data.token);
-      return {
-        ...resp.data.user  
-      };
+        this.tokenService
+            .setToken(resp.data.token);
+        return {
+            tenant: resp.data.tenantCode,
+            ...resp.data.user
+        };
     };
 
-    getUser = () => {
+    getUser = (tenant) => {
         let token = this.tokenService
             .getToken();
         return this.authHttpService
-            .get(Constants.ApiRoutes.GET_USER)
+            .get(Constants.ApiRoutes.GET_USER, tenant)
             .then(resp => {
                 return {
                     ...resp.data,
-                    token
+                    token,
+                    tenant
                 };
             });
     };

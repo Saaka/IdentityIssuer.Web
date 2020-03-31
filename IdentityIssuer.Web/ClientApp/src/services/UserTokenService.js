@@ -1,7 +1,7 @@
-import decode from 'jwt-decode';
+import decode from "jwt-decode";
 
 export class UserTokenService {
-    tokenName = 'user_token_id_iss';
+    tokenName = "user_token_id_iss";
 
     setToken = (token) => localStorage.setItem(this.tokenName, token);
 

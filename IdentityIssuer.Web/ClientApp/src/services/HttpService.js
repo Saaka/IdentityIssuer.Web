@@ -35,7 +35,7 @@ class HttpService {
                 throw err.message;
         });
     };
-    
+
     getHeaders(tenant) {
         return {
             "X-Tenant-Code": tenant || this.baseTenant
