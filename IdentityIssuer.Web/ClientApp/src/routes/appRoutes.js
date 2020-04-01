@@ -3,7 +3,7 @@ import {RouteNames} from "./names";
 
 const appRoutes = [
     {
-        useAuth: false,
+        useAuth: true,
         path: RouteNames.Home,
         component: Dashboard,
         name: "Home",
