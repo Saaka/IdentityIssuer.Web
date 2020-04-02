@@ -14,7 +14,10 @@ function Login(props) {
     });
     const [loading, setLoading] = useState(false);
     const [isSubmitted, setSubmitted] = useState(false);
-    const [isLoginError, setLoginError] = useState(false);
+    const [error, setLoginError] = useState({
+        isError: false,
+        message: ""
+    });
 
     useEffect(() => {
         if (props.user.isLoggedIn)
@@ -52,13 +55,13 @@ function Login(props) {
 
     function onError(err) {
         setLoading(false);
-        setLoginError(true);
+        setLoginError({isError: true, message: err.error});
         console.error(err);
     }
 
     function submitLogin(ev) {
         ev.preventDefault();
-        setLoginError(false);
+        setLoginError({isError: false});
         setSubmitted(true);
         let formIsValid = ev.target.checkValidity();
         if (formIsValid) {
@@ -136,10 +139,12 @@ function Login(props) {
                                 <div className="control-error">Password is required (min. 6 characters)</div>
                             </div>
                         </div>
-                        <div className="field is-grouped is-grouped-right">
+                        <div className="field button-group">
                             <div className="control">
                                 <button type="submit" className="button is-primary">Submit</button>
-                                {isLoginError ? <p className="help is-danger">Login error</p> : ""}
+                            </div>
+                            <div>
+                                {error.isError ? <p className="help is-danger">Login error: {error.message}</p> : ""}
                             </div>
                         </div>
                     </form>
