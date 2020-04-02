@@ -1,7 +1,7 @@
 export class TenantService {
     key = "tenant_code_id_iss";
 
-    setTenant = (tenant) => localStorage.setItem(this.key, tenant);
+    setTenant = (tenantCode) => localStorage.setItem(this.key, tenantCode);
 
     getTenant = () => localStorage.getItem(this.key);
 

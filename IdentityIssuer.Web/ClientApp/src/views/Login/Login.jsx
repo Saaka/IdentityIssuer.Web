@@ -8,12 +8,13 @@ function Login(props) {
     const tenantService = new TenantService();
     const authService = new AuthService();
     const [credentials, setCredentials] = useState({
-        password:"",
+        password: "",
         email: "",
         tenantCode: ""
     });
     const [loading, setLoading] = useState(false);
     const [isSubmitted, setSubmitted] = useState(false);
+    const [isLoginError, setLoginError] = useState(false);
 
     useEffect(() => {
         if (props.user.isLoggedIn)
@@ -23,11 +24,11 @@ function Login(props) {
     }, []);
 
     function initCredentials() {
-        let tenant = tenantService.getTenant();
-        if (!!tenant)
+        let tenantCode = tenantService.getTenant();
+        if (!!tenantCode)
             setCredentials(state => ({
                 ...state,
-                tenantCode: tenant
+                tenantCode: tenantCode
             }));
     }
 
@@ -39,24 +40,44 @@ function Login(props) {
         }));
     }
 
+    function onLoginSuccess(user) {
+        props.onLogin(user);
+        tenantService.setTenant(user.tenantCode);
+        let parsedQuery = queryString.parse(props.location.search);
+        if (!!parsedQuery && parsedQuery.redirect)
+            redirectToPath(parsedQuery.redirect);
+        else
+            redirectToMainPage();
+    }
+
+    function onError(err) {
+        setLoading(false);
+        setLoginError(true);
+        console.error(err);
+    }
+
     function submitLogin(ev) {
         ev.preventDefault();
+        setLoginError(false);
         setSubmitted(true);
         let formIsValid = ev.target.checkValidity();
-        if(formIsValid) {
-
+        if (formIsValid) {
             setLoading(true);
-            tenantService.setTenant(credentials.tenantCode);
-            setTimeout(() => {
-                initCredentials();
-                setLoading(false);
-            }, 250);
+            authService
+                .loginWithCredentials(credentials.email, credentials.password, credentials.tenantCode)
+                .then(onLoginSuccess)
+                .catch(onError);
         }
     }
 
     function redirectToMainPage() {
         props.history.replace("/");
     }
+
+    function redirectToPath(path) {
+        props.history.push(path);
+    }
+
     const getFormClass = () => isSubmitted ? "is-validated" : "";
 
     const renderLoader = () => (<Loader/>);
@@ -118,6 +139,7 @@ function Login(props) {
                         <div className="field is-grouped is-grouped-right">
                             <div className="control">
                                 <button type="submit" className="button is-primary">Submit</button>
+                                {isLoginError ? <p className="help is-danger">Login error</p> : ""}
                             </div>
                         </div>
                     </form>

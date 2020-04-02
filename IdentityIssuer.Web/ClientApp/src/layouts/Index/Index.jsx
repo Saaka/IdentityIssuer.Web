@@ -13,18 +13,18 @@ function Index(props) {
     const [user, setUser] = useState({isLoggedIn: false});
 
     useEffect(() => {
-        let tenant = tenantService.getTenant();
-        if (authService.isLoggedIn() && !!tenant)
-            loadUserData(tenant);
+        let tenantCode = tenantService.getTenant();
+        if (authService.isLoggedIn() && !!tenantCode)
+            loadUserData(tenantCode);
         else {
             removeUser();
             hideLoader();
         }
     }, []);
 
-    function loadUserData(tenant) {
+    function loadUserData(tenantCode) {
         authService
-            .getUser(tenant)
+            .getUser(tenantCode)
             .then(updateUser)
             .catch(onError)
             .finally(hideLoader);

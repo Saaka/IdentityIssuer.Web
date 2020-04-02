@@ -12,12 +12,12 @@ export class AuthService {
         this.tenantService.clearTenant();
     };
 
-    loginWithCredentials = (email, password, tenant) => {
+    loginWithCredentials = (email, password, tenantCode) => {
         return this.httpService
             .post(Constants.ApiRoutes.LOGIN, {
                 password: password,
                 email: email
-            }, tenant)
+            }, tenantCode)
             .then(this.onLogin);
     };
 
@@ -25,21 +25,21 @@ export class AuthService {
         this.tokenService
             .setToken(resp.data.token);
         return {
-            tenant: resp.data.tenantCode,
+            tenantCode: resp.data.tenantCode,
             ...resp.data.user
         };
     };
 
-    getUser = (tenant) => {
+    getUser = (tenantCode) => {
         let token = this.tokenService
             .getToken();
         return this.authHttpService
-            .get(Constants.ApiRoutes.GET_USER, tenant)
+            .get(Constants.ApiRoutes.GET_USER, tenantCode)
             .then(resp => {
                 return {
                     ...resp.data,
                     token,
-                    tenant
+                    tenantCode
                 };
             });
     };
