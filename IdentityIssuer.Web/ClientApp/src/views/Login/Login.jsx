@@ -7,8 +7,13 @@ import "./Login.scss";
 function Login(props) {
     const tenantService = new TenantService();
     const authService = new AuthService();
-    const [credentials, setCredentials] = useState({});
+    const [credentials, setCredentials] = useState({
+        password:"",
+        email: "",
+        tenantCode: ""
+    });
     const [loading, setLoading] = useState(false);
+    const [isSubmitted, setSubmitted] = useState(false);
 
     useEffect(() => {
         if (props.user.isLoggedIn)
@@ -36,17 +41,23 @@ function Login(props) {
 
     function submitLogin(ev) {
         ev.preventDefault();
-        setLoading(true);
-        tenantService.setTenant(credentials.tenantCode);
-        setTimeout(() => {
-            initCredentials();
-            setLoading(false);
-        }, 250);
+        setSubmitted(true);
+        let formIsValid = ev.target.checkValidity();
+        if(formIsValid) {
+
+            setLoading(true);
+            tenantService.setTenant(credentials.tenantCode);
+            setTimeout(() => {
+                initCredentials();
+                setLoading(false);
+            }, 250);
+        }
     }
 
     function redirectToMainPage() {
         props.history.replace("/");
     }
+    const getFormClass = () => isSubmitted ? "is-validated" : "";
 
     const renderLoader = () => (<Loader/>);
 
@@ -58,7 +69,8 @@ function Login(props) {
                 <div className="notification">
                     <form name="loginForm"
                           onSubmit={(ev) => submitLogin(ev)}
-                          noValidate>
+                          noValidate
+                          className={getFormClass()}>
                         <div className="field">
                             <label className="label">Tenant Code</label>
                             <div className="control">
@@ -67,35 +79,40 @@ function Login(props) {
                                        required
                                        className="input"
                                        type="text"
+                                       minLength="3"
                                        maxLength="3"
-                                       onChange={handleCredentialsChange}
-                                       value={credentials.tenantCode}/>
+                                       value={credentials.tenantCode}
+                                       onChange={handleCredentialsChange}/>
+                                <div className="control-error">Three letter tenant code is required.</div>
                             </div>
                         </div>
                         <div className="field">
                             <label className="label">User email</label>
                             <div className="control">
-                                <input id="userEmail"
+                                <input id="email"
                                        name="email"
                                        required
                                        className="input"
-                                       type="text"
+                                       type="email"
                                        maxLength="128"
-                                       onChange={handleCredentialsChange}
-                                       value={credentials.email}/>
+                                       value={credentials.email}
+                                       onChange={handleCredentialsChange}/>
+                                <div className="control-error">Email is required</div>
                             </div>
                         </div>
                         <div className="field">
                             <label className="label">User password</label>
                             <div className="control">
-                                <input id="userPassword"
+                                <input id="password"
                                        name="password"
                                        required
                                        className="input"
                                        type="password"
                                        maxLength="128"
-                                       onChange={handleCredentialsChange}
-                                       value={credentials.password}/>
+                                       minLength="6"
+                                       value={credentials.password}
+                                       onChange={handleCredentialsChange}/>
+                                <div className="control-error">Password is required (min. 6 characters)</div>
                             </div>
                         </div>
                         <div className="field is-grouped is-grouped-right">

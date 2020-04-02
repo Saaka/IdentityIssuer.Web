@@ -20,6 +20,7 @@
         <Content Include="ClientApp\jsconfig.json" />
         <Content Include="ClientApp\src\assets\font-awesome.js" />
         <Content Include="ClientApp\src\assets\_debug.scss" />
+        <Content Include="ClientApp\src\assets\_forms.scss" />
         <Content Include="ClientApp\src\assets\_style.scss" />
         <Content Include="ClientApp\src\assets\_variables.scss" />
         <Content Include="ClientApp\src\components\AuthRoute\AuthRoute.jsx" />
