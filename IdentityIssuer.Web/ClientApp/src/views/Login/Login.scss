@@ -1,5 +1,10 @@
 @import "src/assets/forms";
 
+.login-body {
+  align-items: flex-start !important;
+  margin-top: 5rem;
+}
+
 .login-container {
   flex-direction: column;
 
@@ -7,6 +12,7 @@
     margin-bottom: 1rem;
   }
 }
+
 .button-group {
   display: flex;
   flex-direction: column;

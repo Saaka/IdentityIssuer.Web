@@ -8,7 +8,7 @@ function Dashboard(props) {
             <div className="hero-body">
                 <div className="container dashboard-container center">
                     <div>
-                        <h1 className="is-size-1">Welcome to Identity Issuer Web UI</h1>
+                        <h1 className="is-size-1">Identity Issuer</h1>
                     </div>
                     <div>
                         <figure className="image is-128x128 has-border">

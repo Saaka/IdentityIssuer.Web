@@ -155,7 +155,7 @@ function Login(props) {
 
     return (
         <section className="hero has-background-gradient is-fullheight">
-            <div className="hero-body">
+            <div className="hero-body login-body">
                 <div className="container center login-container">
                     {loading ? renderLoader() : renderForm()}
                 </div>
