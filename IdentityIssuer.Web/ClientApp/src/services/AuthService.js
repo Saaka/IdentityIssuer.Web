@@ -3,7 +3,7 @@ import {AuthHttpService, HttpService, Constants, UserTokenService, TenantService
 export class AuthService {
     tokenService = new UserTokenService();
     tenantService = new TenantService();
-    authHttpService = new AuthHttpService("a");
+    authHttpService = new AuthHttpService();
     httpService = new HttpService();
 
     isLoggedIn = () => this.tokenService.isTokenValid();

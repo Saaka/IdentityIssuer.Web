@@ -10,9 +10,11 @@ class HttpService {
     };
 
     get = (address, tenantCode) => {
+        let baseAddress = this.getAddress();
+        
         return Axios({
             method: "get",
-            url: `${this.baseAddress}/` + address,
+            url: `${baseAddress}` + address,
             headers: this.getHeaders(tenantCode)
         }).catch(err => {
             if (err.response)
@@ -23,9 +25,11 @@ class HttpService {
     };
 
     post = (address, data, tenantCode) => {
+        let baseAddress = this.getAddress();
+        
         return Axios({
             method: "post",
-            url: `${this.baseAddress}` + address,
+            url: `${baseAddress}` + address,
             data: data,
             headers: this.getHeaders(tenantCode)
         }).catch(err => {
@@ -34,6 +38,13 @@ class HttpService {
             else
                 throw err.message;
         });
+    };
+    
+    getAddress = () => {
+        if(this.baseAddress.endsWith("/"))
+            return this.baseAddress;
+        
+        return this.baseAddress + "/";
     };
 
     getHeaders(tenantCode) {
