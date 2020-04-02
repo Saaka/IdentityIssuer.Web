@@ -9,7 +9,6 @@ export class AuthService {
     isLoggedIn = () => this.tokenService.isTokenValid();
     logout = () => {
         this.tokenService.removeToken();
-        this.tenantService.clearTenant();
     };
 
     loginWithCredentials = (email, password, tenantCode) => {
