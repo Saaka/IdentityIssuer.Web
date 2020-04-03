@@ -18,6 +18,7 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\.env" />
         <Content Include="ClientApp\jsconfig.json" />
+        <Content Include="ClientApp\src\assets\_customVariables.scss" />
         <Content Include="ClientApp\src\assets\font-awesome.js" />
         <Content Include="ClientApp\src\assets\_debug.scss" />
         <Content Include="ClientApp\src\assets\_forms.scss" />
@@ -42,6 +43,8 @@
         <Content Include="ClientApp\src\services\ConfigService.js" />
         <Content Include="ClientApp\src\services\Constants.js" />
         <Content Include="ClientApp\src\services\HttpService.js" />
+        <Content Include="ClientApp\src\services\styling\ThemeHelper.js" />
+        <Content Include="ClientApp\src\services\styling\themes.js" />
         <Content Include="ClientApp\src\services\TenantService.js" />
         <Content Include="ClientApp\src\services\UserTokenService.js" />
         <Content Include="ClientApp\src\views\Dashboard\Dashboard.jsx" />
