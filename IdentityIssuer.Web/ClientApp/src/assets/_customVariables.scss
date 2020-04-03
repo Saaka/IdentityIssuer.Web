@@ -1,0 +1,13 @@
+// COLORS
+
+@import "~css-vars/css-vars";
+
+$css-vars-use-native: true;
+
+$primary: red;
+$info: yellow;
+
+@include css-vars((
+  --primary: $primary,
+  --info: $info,
+))
