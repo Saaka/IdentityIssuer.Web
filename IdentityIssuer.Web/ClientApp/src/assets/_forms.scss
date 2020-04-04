@@ -13,11 +13,8 @@ form.is-validated {
       display: block;
     }
     
-    //.input:valid {
-    //  border-color: $success;
-    //}
-    //.input:invalid {
-    //  border-color: $danger;
-    //}
+    .input:invalid {
+      border-color: $danger;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import {themes} from './themes.js';
 
+//Theme helper is not used as Bulma does not support css variables
 class ThemeHelper {
 
     updateCurrentTheme = (themeName) => {

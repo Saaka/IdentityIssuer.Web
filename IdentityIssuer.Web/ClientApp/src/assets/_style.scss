@@ -1,21 +1,9 @@
-//@import "customVariables";
-
+@import "theme";
 @import "~bulma/bulma";
+@import "components/_components";
 
 html {
-  overflow-y: auto;
-}
-
-body::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  //overflow-y: auto;
 }
 
 //@import "debug";
@@ -27,9 +15,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .has-background-gradient {
-  background: $primary;
-  background: linear-gradient(180deg, $primary 0%, $info 100%);
+  background: $primary-dark;
+  background: linear-gradient(180deg, $primary-dark 0%, $primary 100%);
 }
-
-.btn-grad {background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%)}
-.btn-grad:hover { background-position: right center; }

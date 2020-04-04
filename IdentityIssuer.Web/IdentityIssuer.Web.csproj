@@ -18,11 +18,13 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\.env" />
         <Content Include="ClientApp\jsconfig.json" />
-        <Content Include="ClientApp\src\assets\_customVariables.scss" />
+        <Content Include="ClientApp\src\assets\components\_scrollbar.scss" />
+        <Content Include="ClientApp\src\assets\components\__components.scss" />
         <Content Include="ClientApp\src\assets\font-awesome.js" />
         <Content Include="ClientApp\src\assets\_debug.scss" />
         <Content Include="ClientApp\src\assets\_forms.scss" />
         <Content Include="ClientApp\src\assets\_style.scss" />
+        <Content Include="ClientApp\src\assets\_theme.scss" />
         <Content Include="ClientApp\src\assets\_variables.scss" />
         <Content Include="ClientApp\src\components\AuthRoute\AuthRoute.jsx" />
         <Content Include="ClientApp\src\components\common.js" />
