@@ -17,7 +17,12 @@ export class AuthService {
                 password: password,
                 email: email
             }, tenantCode)
-            .then(this.onLogin);
+            .then(this.onLogin)
+            .catch(this.onLoginError);
+    };
+    
+    onLoginError = (err) => {
+      throw err.error || err;  
     };
 
     onLogin = (resp) => {

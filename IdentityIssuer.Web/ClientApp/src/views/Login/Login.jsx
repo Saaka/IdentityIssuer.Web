@@ -55,7 +55,7 @@ function Login(props) {
 
     function onError(err) {
         setLoading(false);
-        setLoginError({isError: true, message: err.error});
+        setLoginError({isError: true, message: err});
         console.error(err);
     }
 
