@@ -5,8 +5,9 @@ import appRoutes from "routes/appRoutes";
 import "./App.scss";
 
 function App(props) {
-    return (
-        <div>
+
+    function RenderSwitch() {
+        return (
             <Switch>
                 {appRoutes.map((prop, key) => {
                     if (prop.redirect)
@@ -17,11 +18,17 @@ function App(props) {
                                                user={props.user}/>);
                         else
                             return (<AuthRoute path={prop.path} component={prop.component} name={prop.name} key={key}
-                                              user={props.user}/>);
+                                               user={props.user}/>);
                     else
                         return <Route path={prop.path} component={prop.component} name={prop.name} key={key}/>;
                 })}
             </Switch>
+        );
+    }
+
+    return (
+        <div>
+            {RenderSwitch()}
         </div>
     );
 }
