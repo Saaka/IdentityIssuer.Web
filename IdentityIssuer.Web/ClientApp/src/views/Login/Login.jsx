@@ -61,7 +61,7 @@ function Login(props) {
 
     function submitLogin(ev) {
         ev.preventDefault();
-        setLoginError({isError: false});
+        setLoginError({isError: false, message: ""});
         setSubmitted(true);
         let formIsValid = ev.target.checkValidity();
         if (formIsValid) {
