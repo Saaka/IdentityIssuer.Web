@@ -81,85 +81,82 @@ function Login(props) {
         props.history.push(path);
     }
 
-    const getFormClass = () => isSubmitted ? "is-validated" : "";
+    const getFormClass = () => isSubmitted ? "was-validated" : "";
 
     const renderLoader = () => (<Loader/>);
 
     function renderForm() {
         return (
-            <React.Fragment>
-
-                <h1 className="is-size-4 login-title">Login to Identity Issuer</h1>
-                <div className="notification">
-                    <form name="loginForm"
-                          onSubmit={(ev) => submitLogin(ev)}
-                          noValidate
-                          className={getFormClass()}>
-                        <div className="field">
-                            <label className="label">Tenant Code</label>
-                            <div className="control">
-                                <input id="tenantCode"
-                                       name="tenantCode"
-                                       required
-                                       className="input"
-                                       type="text"
-                                       minLength="3"
-                                       maxLength="3"
-                                       value={credentials.tenantCode}
-                                       onChange={handleCredentialsChange}/>
-                                <div className="control-error">Three letter tenant code is required.</div>
+            <div className="container login-container center-h">
+                <div className="col-md-4 offset-md-4">
+                    <div className="row justify-content-center">
+                        <h1 className="login-title">Identity Issuer</h1>
+                    </div>
+                    <div className="row card">
+                        <div className="container">
+                            <div className="row justify-content-center">
+                                <h2>Login</h2>
                             </div>
+                            <form name="loginForm"
+                                  onSubmit={(ev) => submitLogin(ev)}
+                                  noValidate
+                                  className={getFormClass()}>
+                                <div className="form-group">
+                                    <label htmlFor="tenantCode">Tenant Code</label>
+                                    <input id="tenantCode"
+                                           name="tenantCode"
+                                           required
+                                           className="form-control"
+                                           type="text"
+                                           minLength="3"
+                                           maxLength="3"
+                                           value={credentials.tenantCode}
+                                           onChange={handleCredentialsChange}/>
+                                    <div className="invalid-feedback">Three letter tenant code is required.</div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="email">User email</label>
+                                    <input id="email"
+                                           name="email"
+                                           required
+                                           className="form-control"
+                                           type="email"
+                                           maxLength="128"
+                                           value={credentials.email}
+                                           onChange={handleCredentialsChange}/>
+                                    <div className="invalid-feedback">Email is required</div>
+                                </div>
+                                <div className="form-group">
+                                    <label className="label">User password</label>
+                                    <input id="password"
+                                           name="password"
+                                           required
+                                           className="form-control"
+                                           type="password"
+                                           maxLength="128"
+                                           minLength="6"
+                                           value={credentials.password}
+                                           onChange={handleCredentialsChange}/>
+                                    <div className="invalid-feedback">Password is required (min. 6 characters)</div>
+                                </div>
+                                <div className="form-group">
+                                    <button type="submit" className="btn btn-primary">Submit</button>
+                                    <div>
+                                        {error.isError ?
+                                            <p className="text-danger">Login error: {error.message}</p> : ""}
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div className="field">
-                            <label className="label">User email</label>
-                            <div className="control">
-                                <input id="email"
-                                       name="email"
-                                       required
-                                       className="input"
-                                       type="email"
-                                       maxLength="128"
-                                       value={credentials.email}
-                                       onChange={handleCredentialsChange}/>
-                                <div className="control-error">Email is required</div>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">User password</label>
-                            <div className="control">
-                                <input id="password"
-                                       name="password"
-                                       required
-                                       className="input"
-                                       type="password"
-                                       maxLength="128"
-                                       minLength="6"
-                                       value={credentials.password}
-                                       onChange={handleCredentialsChange}/>
-                                <div className="control-error">Password is required (min. 6 characters)</div>
-                            </div>
-                        </div>
-                        <div className="field button-group">
-                            <div className="control">
-                                <button type="submit" className="button is-primary">Submit</button>
-                            </div>
-                            <div>
-                                {error.isError ? <p className="help is-danger">Login error: {error.message}</p> : ""}
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 
     return (
-        <section className="hero has-background-gradient is-fullheight">
-            <div className="hero-body login-body">
-                <div className="container center login-container">
-                    {loading ? renderLoader() : renderForm()}
-                </div>
-            </div>
+        <section className="h-100 d-flex justify-content-center has-background-gradient">
+            {loading ? renderLoader() : renderForm()}
         </section>
     );
 }

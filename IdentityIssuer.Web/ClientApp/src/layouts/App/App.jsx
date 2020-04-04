@@ -6,7 +6,7 @@ import "./App.scss";
 
 function App(props) {
     return (
-        <div>
+        <React.Fragment>
             <Switch>
                 {appRoutes.map((prop, key) => {
                     if (prop.redirect)
@@ -22,7 +22,7 @@ function App(props) {
                         return <Route path={prop.path} component={prop.component} name={prop.name} key={key}/>;
                 })}
             </Switch>
-        </div>
+        </React.Fragment>
     );
 }
 

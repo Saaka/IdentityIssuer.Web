@@ -59,7 +59,7 @@ function Index(props) {
 
     function renderApp() {
         return (
-            <span>
+            <React.Fragment>
                 <Route exact
                        path={RouteNames.Root}
                        render={(props) => <Redirect to={RouteNames.App}
@@ -73,16 +73,14 @@ function Index(props) {
                                                  user={user}/>}/>
                 <Route path={RouteNames.App}
                        render={(props) => <App {...props} user={user}/>}/>
-            </span>
+            </React.Fragment>
         );
     }
 
     function renderLoader() {
         return (
-            <div className="hero has-background-gradient is-fullheight">
-                <div className="hero-body center">
-                    <Loader/>
-                </div>
+            <div className="has-background-gradient container-fluid h-100">
+                <Loader/>
             </div>
         );
     }
