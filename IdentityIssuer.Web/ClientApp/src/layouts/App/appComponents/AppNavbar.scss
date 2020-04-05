@@ -1,5 +1,11 @@
 @import "src/assets/variables";
 
-nav.navbar.is-transparent{
+nav.navbar.is-transparent {
   //background-color: transparent;
+}
+
+@media screen and (max-width: 1023px) {
+  #app-navbar-menu.navbar-menu {
+    background-color: inherit;
+  }
 }
