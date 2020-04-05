@@ -15,7 +15,7 @@ function AppNavbar(props) {
     const burgerClasses = () => isMenuActive ? "navbar-burger burger is-active": "navbar-burger burger";
     
     return (
-        <nav className="navbar is-transparent is-primary" role="navigation" aria-label="main site navigation">
+        <nav className="navbar is-primary" role="navigation" aria-label="main site navigation">
             <div className="container">
                 <div className="navbar-brand">
                     <a className="navbar-item">IdentityIssuer</a>
