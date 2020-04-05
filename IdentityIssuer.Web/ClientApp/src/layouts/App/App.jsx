@@ -28,7 +28,7 @@ function App(props) {
     }
 
     return (
-        <div className="app-container">
+        <div className="app-container has-background-gradient">
             <AppNavbar {...props} user={props.user}/>
             {RenderSwitch()}
         </div>
