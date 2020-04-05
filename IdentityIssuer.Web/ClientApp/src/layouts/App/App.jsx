@@ -1,6 +1,7 @@
 import React from 'react';
 import {Switch, Route, Redirect} from "react-router";
 import {AuthRoute} from "components/navigation";
+import {AppNavbar} from "./appComponents/AppNavbar";
 import appRoutes from "routes/appRoutes";
 import "./App.scss";
 
@@ -27,7 +28,8 @@ function App(props) {
     }
 
     return (
-        <div>
+        <div className="app-container">
+            <AppNavbar {...props} user={props.user}/>
             {RenderSwitch()}
         </div>
     );

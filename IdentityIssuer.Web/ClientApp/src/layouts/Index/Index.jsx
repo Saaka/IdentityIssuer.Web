@@ -4,7 +4,7 @@ import {AuthService, TenantService} from "Services";
 import {App} from "layouts/exports";
 import {RouteNames} from "routes/names";
 import {Loader} from "components/common";
-import {Login} from "views/exports";
+import {Login, Logout} from "views/exports";
 
 function Index(props) {
     const authService = new AuthService();
@@ -59,7 +59,7 @@ function Index(props) {
 
     function renderApp() {
         return (
-            <span>
+            <React.Fragment>
                 <Route exact
                        path={RouteNames.Root}
                        render={(props) => <Redirect to={RouteNames.App}
@@ -69,11 +69,13 @@ function Index(props) {
                        render={(props) => <Login {...props}
                                                  onLogin={onLogin}
                                                  onLogout={onLogout}
-                                                 toggleLoader={setIsLoading}
                                                  user={user}/>}/>
+                <Route path={RouteNames.Logout}
+                       render={(props) => <Logout {...props}
+                                                 onLogout={onLogout}/>}/>
                 <Route path={RouteNames.App}
                        render={(props) => <App {...props} user={user}/>}/>
-            </span>
+            </React.Fragment>
         );
     }
 

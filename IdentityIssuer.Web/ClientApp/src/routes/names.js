@@ -4,7 +4,7 @@ RouteNames.Root = "/";
 
 RouteNames.Auth = "/auth";
 RouteNames.Login = "/auth/login";
-RouteNames.Logout = "/auth/login";
+RouteNames.Logout = "/auth/logout";
 
 RouteNames.App = "/app";
 RouteNames.Unauthorized = "/app/unauthorized";
