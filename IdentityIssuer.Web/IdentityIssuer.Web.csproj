@@ -35,8 +35,8 @@
         <Content Include="ClientApp\src\layouts\App\App.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.scss" />
         <Content Include="ClientApp\src\layouts\App\App.test.js" />
-        <Content Include="ClientApp\src\layouts\App\AppComponents\AppNavbar.jsx" />
-        <Content Include="ClientApp\src\layouts\App\AppComponents\AppNavbar.scss" />
+        <Content Include="ClientApp\src\layouts\App\AppNavbar\AppNavbar.jsx" />
+        <Content Include="ClientApp\src\layouts\App\AppNavbar\AppNavbar.scss" />
         <Content Include="ClientApp\src\layouts\exports.js" />
         <Content Include="ClientApp\src\layouts\Index\Index.jsx" />
         <Content Include="ClientApp\src\layouts\Index\Index.scss" />

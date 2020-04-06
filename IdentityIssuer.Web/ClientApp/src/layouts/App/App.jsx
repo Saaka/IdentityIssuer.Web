@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, Redirect} from "react-router";
 import {AuthRoute, AdminRoute} from "components/navigation";
-import {AppNavbar} from "./AppComponents/AppNavbar";
+import {AppNavbar} from "./AppNavbar/AppNavbar";
 import appRoutes from "routes/appRoutes";
 import "./App.scss";
 
