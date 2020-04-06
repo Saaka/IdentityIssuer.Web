@@ -9,5 +9,6 @@ RouteNames.Logout = "/auth/logout";
 RouteNames.App = "/app";
 RouteNames.Unauthorized = "/app/unauthorized";
 RouteNames.Home = "/app/home";
+RouteNames.About = "/app/about";
 
 export {RouteNames};

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import "./AppNavbar.scss";
 import {RouteNames} from "routes/names";
 
@@ -18,7 +19,7 @@ function AppNavbar(props) {
         <nav className="navbar is-primary" role="navigation" aria-label="main site navigation">
             <div className="container">
                 <div className="navbar-brand">
-                    <a className="navbar-item">IdentityIssuer</a>
+                    <a className="navbar-item has-text-weight-bold">IdentityIssuer</a>
 
                     <a className={burgerClasses()} 
                        onClick={toggleNavbarMenu}
@@ -29,9 +30,16 @@ function AppNavbar(props) {
                     </a>
                 </div>
                 <div className={menuClasses()} id="app-navbar-menu">
+                    <div className="navbar-start">
+                        <Link className="navbar-item" to={RouteNames.Home}>Dashboard</Link>
+                        <a className="navbar-item">
+                            Tenants
+                        </a>
+                        <Link className="navbar-item" to={RouteNames.About}>About</Link>
+                    </div>
                     <div className="navbar-end">
                         <div className="navbar-item">
-                            <a className="button" onClick={logout}>Log out</a>
+                            <a className="button is-primary is-inverted is-outlined" onClick={logout}>Log out</a>
                         </div>
                     </div>
                 </div>
