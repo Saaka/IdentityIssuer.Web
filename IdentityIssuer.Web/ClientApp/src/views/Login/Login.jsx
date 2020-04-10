@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import queryString from "query-string";
-import {TenantService, AuthService} from "Services";
+import {TenantService, AuthService, UserTokenService} from "Services";
 import {Loader} from "components/common";
 import "./Login.scss";
 
 function Login(props) {
     const tenantService = new TenantService();
     const authService = new AuthService();
+    const userTokenService = new UserTokenService();
     const [credentials, setCredentials] = useState({
         password: "",
         email: "",
@@ -45,7 +46,6 @@ function Login(props) {
 
     function onLoginSuccess(user) {
         props.onLogin(user);
-        tenantService.setTenant(user.tenantCode);
         let parsedQuery = queryString.parse(props.location.search);
         if (!!parsedQuery && parsedQuery.redirect)
             redirectToPath(parsedQuery.redirect);

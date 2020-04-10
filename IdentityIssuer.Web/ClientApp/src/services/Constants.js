@@ -9,4 +9,10 @@ Constants.ApiRoutes = class ApiRoutes {
     }
 };
 
+Constants.UserRoles = class UserRoles {
+  static get ADMIN() {
+      return "Admin";
+  }  
+};
+
 export {Constants};

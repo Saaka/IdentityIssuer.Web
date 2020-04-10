@@ -1,6 +1,7 @@
 import React from "react";
 import {Route, Redirect} from "react-router-dom";
 import {RouteNames} from "routes/names";
+import {Constants} from "Services";
 
 function AdminRoute(
     {
@@ -8,12 +9,17 @@ function AdminRoute(
         user,
         ...data
     }) {
+    
+    function isUserAdmin(user) {
+        return user.roles.includes(Constants.UserRoles.ADMIN);
+    }
+    
     return (
         <Route {...data}
                render={props => {
-                   if (user && user.isLoggedIn && user.isAdmin)
+                   if (user && user.isLoggedIn && isUserAdmin(user))
                        return (<Component {...props} user={user}/>);
-                   else if (user && user.isLoggedIn && !user.isAdmin)
+                   else if (user && user.isLoggedIn && !isUserAdmin(user))
                        return (<Redirect to={{
                                pathname: RouteNames.Unauthorized
                            }}/>

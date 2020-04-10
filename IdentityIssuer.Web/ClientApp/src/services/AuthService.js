@@ -20,31 +20,37 @@ export class AuthService {
             .then(this.onLogin)
             .catch(this.onLoginError);
     };
-    
+
     onLoginError = (err) => {
-      throw err.error || err;  
+        throw err.error || err;
     };
 
     onLogin = (resp) => {
         this.tokenService
             .setToken(resp.data.token);
-        return {
-            tenantCode: resp.data.tenantCode,
-            ...resp.data.user
-        };
+        let authData = this.tokenService
+            .getTokenData();
+        this.tenantService
+            .setTenant(authData.tenant);
+
+        return this.getUserFromTokenData(authData);
     };
 
-    getUser = (tenantCode) => {
-        let token = this.tokenService
-            .getToken();
-        return this.authHttpService
-            .get(Constants.ApiRoutes.GET_USER, tenantCode)
-            .then(resp => {
-                return {
-                    ...resp.data,
-                    token,
-                    tenantCode
-                };
-            });
+    getUser = () => {
+        let authData = this.tokenService
+            .getTokenData();
+        
+        return this.getUserFromTokenData(authData);
+    };
+
+    getUserFromTokenData = (authData) => {
+        return {
+            tenantCode: authData.tenant,
+            userGuid: authData.sub,
+            name: authData.name,
+            email: authData.email,
+            avatar: authData.avatar,
+            roles: authData.role
+        }
     };
 }

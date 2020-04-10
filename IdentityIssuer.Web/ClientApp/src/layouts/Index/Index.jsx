@@ -14,7 +14,7 @@ function Index(props) {
 
     useEffect(() => {
         let tenantCode = tenantService.getTenant();
-        if (authService.isLoggedIn() && !!tenantCode)
+        if (authService.isLoggedIn())
             loadUserData(tenantCode);
         else {
             removeUser();
@@ -22,12 +22,12 @@ function Index(props) {
         }
     }, []);
 
-    function loadUserData(tenantCode) {
-        authService
-            .getUser(tenantCode)
-            .then(updateUser)
-            .catch(onError)
-            .finally(hideLoader);
+    function loadUserData() {
+        let userData = authService
+            .getUser();
+        updateUser(userData);
+
+        hideLoader();
     }
 
     function updateUser(user) {
@@ -53,7 +53,12 @@ function Index(props) {
         hideLoader();
         updateUser(user);
     };
-    const onLogout = () => removeUser();
+
+    const onLogout = () => {
+        setUser({
+            isLoggedIn: false
+        });
+    };
 
     const hideLoader = () => setIsLoading(false);
 
@@ -68,11 +73,10 @@ function Index(props) {
                 <Route path={RouteNames.Login}
                        render={(props) => <Login {...props}
                                                  onLogin={onLogin}
-                                                 onLogout={onLogout}
                                                  user={user}/>}/>
                 <Route path={RouteNames.Logout}
                        render={(props) => <Logout {...props}
-                                                 onLogout={onLogout}/>}/>
+                                                  onLogout={onLogout}/>}/>
                 <Route path={RouteNames.App}
                        render={(props) => <App {...props} user={user}/>}/>
             </React.Fragment>

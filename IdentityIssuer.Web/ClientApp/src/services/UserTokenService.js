@@ -9,7 +9,10 @@ export class UserTokenService {
 
     removeToken = () => localStorage.removeItem(this.tokenName);
 
-    getTokenData = () => decode(this.getToken());
+    getTokenData = () => {
+        let token = this.getToken();
+        return !!token ? decode(token) : null;
+    };
 
     isTokenValid = () => {
         const token = this.getToken();
