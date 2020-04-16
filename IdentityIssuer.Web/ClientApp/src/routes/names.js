@@ -10,5 +10,6 @@ RouteNames.App = "/app";
 RouteNames.Unauthorized = "/app/unauthorized";
 RouteNames.Home = "/app/home";
 RouteNames.About = "/app/about";
+RouteNames.TenantApplication = "/app/apply";
 
 export {RouteNames};

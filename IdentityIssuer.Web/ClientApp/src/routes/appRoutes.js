@@ -1,4 +1,4 @@
-import {Dashboard, Unauthorized, About} from "views/exports";
+import {Dashboard, Unauthorized, About, TenantApplication} from "views/exports";
 import {RouteNames} from "./names";
 
 const appRoutes = [
@@ -11,12 +11,19 @@ const appRoutes = [
         icon: "home"
     },
     {
-      useAuth: false,
-      requireAdmin: false,
-      path: RouteNames.About,
-      component: About,
-      name: "About",
-      icon: "about"  
+        useAuth: true,
+        requireAdmin: false,
+        path: RouteNames.TenantApplication,
+        component: TenantApplication,
+        name: "Apply for tenant",
+    },
+    {
+        useAuth: false,
+        requireAdmin: false,
+        path: RouteNames.About,
+        component: About,
+        name: "About",
+        icon: "about"
     },
     {
         hide: true,

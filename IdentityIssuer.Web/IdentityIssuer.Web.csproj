@@ -59,6 +59,7 @@
         <Content Include="ClientApp\src\views\Login\Login.jsx" />
         <Content Include="ClientApp\src\views\Login\Login.scss" />
         <Content Include="ClientApp\src\views\Logout\Logout.jsx" />
+        <Content Include="ClientApp\src\views\TenantApplication\TenantApplication.jsx" />
         <Content Include="ClientApp\src\views\Unauthorized\Unauthorized.jsx" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />

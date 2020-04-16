@@ -35,6 +35,7 @@ function AppNavbar(props) {
                         <a className="navbar-item">
                             Tenants
                         </a>
+                        <Link className="navbar-item" to={RouteNames.TenantApplication}>Apply for tenant</Link>
                         <Link className="navbar-item" to={RouteNames.About}>About</Link>
                     </div>
                     <div className="navbar-end">
