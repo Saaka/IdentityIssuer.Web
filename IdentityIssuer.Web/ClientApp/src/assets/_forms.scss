@@ -7,6 +7,13 @@
   color: $danger;
 }
 
+.checkbox-control-error {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: $danger;
+}
+
 form.is-validated {
   .control {
     .input:invalid ~ .control-error {

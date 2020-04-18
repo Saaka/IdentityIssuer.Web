@@ -23,6 +23,7 @@
         <Content Include="ClientApp\src\assets\font-awesome.js" />
         <Content Include="ClientApp\src\assets\_debug.scss" />
         <Content Include="ClientApp\src\assets\_forms.scss" />
+        <Content Include="ClientApp\src\assets\_overrides.scss" />
         <Content Include="ClientApp\src\assets\_style.scss" />
         <Content Include="ClientApp\src\assets\_theme.scss" />
         <Content Include="ClientApp\src\assets\_variables.scss" />
@@ -60,6 +61,7 @@
         <Content Include="ClientApp\src\views\Login\Login.scss" />
         <Content Include="ClientApp\src\views\Logout\Logout.jsx" />
         <Content Include="ClientApp\src\views\TenantApplication\TenantApplication.jsx" />
+        <Content Include="ClientApp\src\views\TenantApplication\TenantApplication.scss" />
         <Content Include="ClientApp\src\views\Unauthorized\Unauthorized.jsx" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
