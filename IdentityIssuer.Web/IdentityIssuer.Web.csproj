@@ -30,9 +30,11 @@
         <Content Include="ClientApp\src\components\AdminRoute\AdminRoute.jsx" />
         <Content Include="ClientApp\src\components\AuthRoute\AuthRoute.jsx" />
         <Content Include="ClientApp\src\components\common.js" />
+        <Content Include="ClientApp\src\components\forms.js" />
         <Content Include="ClientApp\src\components\Loader\Loader.jsx" />
         <Content Include="ClientApp\src\components\Loader\Loader.scss" />
         <Content Include="ClientApp\src\components\navigation.js" />
+        <Content Include="ClientApp\src\components\TextInput\TextInput.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.scss" />
         <Content Include="ClientApp\src\layouts\App\App.test.js" />

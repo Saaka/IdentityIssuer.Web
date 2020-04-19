@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Loader} from "components/common";
+import {TextInput} from "components/forms";
 import "./TenantApplication.scss";
 
 function TenantApplication(props) {
@@ -63,49 +64,31 @@ function TenantApplication(props) {
                           onSubmit={(ev) => submitForm(ev)}
                           noValidate
                           className={getFormClass()}>
-                        <div className="field">
-                            <label className="label">Owner email</label>
-                            <div className="control">
-                                <input id="ownerEmail"
-                                       name="ownerEmail"
-                                       required
-                                       className="input"
-                                       type="email"
-                                       maxLength="128"
-                                       value={application.ownerEmail}
-                                       onChange={handleInputChange}/>
-                                <div className="control-error">Owner email is required</div>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Tenant Name</label>
-                            <div className="control">
-                                <input id="tenantName"
-                                       name="tenantName"
-                                       required
-                                       className="input"
-                                       type="text"
-                                       maxLength="32"
-                                       value={application.tenantName}
-                                       onChange={handleInputChange}/>
-                                <div className="control-error">Name is required</div>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Tenant Code</label>
-                            <div className="control">
-                                <input id="tenantCode"
-                                       name="tenantCode"
-                                       required
-                                       className="input"
-                                       type="text"
-                                       minLength="3"
-                                       maxLength="3"
-                                       value={application.tenantCode}
-                                       onChange={handleInputChange}/>
-                                <div className="control-error">Three letter tenant code is required.</div>
-                            </div>
-                        </div>
+                        <TextInput label="Owner email"
+                                   id="ownerEmail"
+                                   name="ownerEmail"
+                                   required
+                                   maxLength="128"
+                                   value={application.ownerEmail}
+                                   onChange={handleInputChange}
+                                   error="Owner email is required"/>
+                        <TextInput label="Tenant name"
+                                   id="tenantName"
+                                   name="tenantName"
+                                   required
+                                   maxLength="32"
+                                   value={application.tenantName}
+                                   onChange={handleInputChange}
+                                   error="Name is required"/>
+                        <TextInput label="Tenant code"
+                                   id="tenantCode"
+                                   name="tenantCode"
+                                   required
+                                   minLength="3"
+                                   maxLength="3"
+                                   value={application.tenantCode}
+                                   onChange={handleInputChange}
+                                   error="Three letter tenant code is required" />
                         <div className="field">
                             <label className="label">Allowed origin</label>
                             <div className="control">
