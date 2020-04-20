@@ -38,17 +38,11 @@ function TenantApplication(props) {
         }));
     }
 
-    function hasLoginMethodSelected() {
-        return application.enableCredentialsLogin ||
-            application.enableGoogleLogin ||
-            application.enableFacebookLogin;
-    }
-
     function submitForm(ev) {
         ev.preventDefault();
         setError({isError: false, message: ""});
         setSubmitted(true);
-        let formIsValid = ev.target.checkValidity() && hasLoginMethodSelected();
+        let formIsValid = ev.target.checkValidity();
         if (formIsValid) {
             alert("OK");
         }
@@ -114,6 +108,7 @@ function TenantApplication(props) {
                                      onChange={handleInputChange}
                                      error="Expiration date for your tokens. Max value is 44640 (one month)"/>
                         <CheckboxGroup label="Login methods"
+                                       id="loginMethods"
                                        isSubmitted={isSubmitted}
                                        oneRequired
                                        error="At least one login method is required">
