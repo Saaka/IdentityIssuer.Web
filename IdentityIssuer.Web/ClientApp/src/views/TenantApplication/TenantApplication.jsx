@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Loader} from "components/common";
-import {TextInput, NumberInput} from "components/forms";
+import {TextInput, NumberInput, CheckboxGroup, Checkbox} from "components/forms";
 import "./TenantApplication.scss";
 
 function TenantApplication(props) {
@@ -88,7 +88,7 @@ function TenantApplication(props) {
                                    maxLength="3"
                                    value={application.tenantCode}
                                    onChange={handleInputChange}
-                                   error="Three letter tenant code is required" />
+                                   error="Three letter tenant code is required"/>
                         <TextInput label="Allowed origin"
                                    id="allowedOrigin"
                                    name="allowedOrigin"
@@ -96,7 +96,7 @@ function TenantApplication(props) {
                                    maxLength="128"
                                    value={application.allowedOrigin}
                                    onChange={handleInputChange}
-                                   error="Set valid origin that will use your tokens" />
+                                   error="Set valid origin that will use your tokens"/>
                         <TextInput label="Token secret"
                                    id="tokenSecret"
                                    name="tokenSecret"
@@ -104,51 +104,35 @@ function TenantApplication(props) {
                                    maxLength="256"
                                    value={application.tokenSecret}
                                    onChange={handleInputChange}
-                                   error="Valid token secret is required (max length is 256 characters)" />
+                                   error="Valid token secret is required (max length is 256 characters)"/>
                         <NumberInput label="Token expiration in minutes"
-                                   id="tokenExpirationInMinutes1"
-                                   name="tokenExpirationInMinutes"
-                                   required
-                                   maxLength="256"
-                                   value={application.tokenExpirationInMinutes}
-                                   onChange={handleInputChange}
-                                   error="Expiration date for your tokens. Max value is 44640 (one month)" />
-                        <div className="field">
-                            <label className="label">Login methods</label>
-                            <div className="control">
-                                <label className="checkbox">
-                                    <input id="enableCredentialsLogin"
-                                           name="enableCredentialsLogin"
-                                           type="checkbox"
-                                           checked={application.enableCredentialsLogin}
-                                           onClick={handleCheckboxChanged}/>
-                                    Enable login with credentials
-                                </label>
-                            </div>
-                            <div className="control">
-                                <label className="checkbox">
-                                    <input id="enableGoogleLogin"
-                                           name="enableGoogleLogin"
-                                           type="checkbox"
-                                           checked={application.enableGoogleLogin}
-                                           onClick={handleCheckboxChanged}/>
-                                    Enable login with Google
-                                </label>
-                            </div>
-                            <div className="control">
-                                <label className="checkbox">
-                                    <input id="enableFacebookLogin"
-                                           name="enableFacebookLogin"
-                                           type="checkbox"
-                                           checked={application.enableFacebookLogin}
-                                           onClick={handleCheckboxChanged}/>
-                                    Enable login with Facebook
-                                </label>
-                            </div>
-                            {isSubmitted && !hasLoginMethodSelected() ?
-                                <div className="checkbox-control-error">At least one login method is required</div>
-                                : ""}
-                        </div>
+                                     id="tokenExpirationInMinutes1"
+                                     name="tokenExpirationInMinutes"
+                                     required
+                                     maxLength="256"
+                                     value={application.tokenExpirationInMinutes}
+                                     onChange={handleInputChange}
+                                     error="Expiration date for your tokens. Max value is 44640 (one month)"/>
+                        <CheckboxGroup label="Login methods"
+                                       isSubmitted={isSubmitted}
+                                       oneRequired
+                                       error="At least one login method is required">
+                            <Checkbox id="enableCredentialsLogin2"
+                                      name="enableCredentialsLogin"
+                                      checked={application.enableCredentialsLogin}
+                                      onChange={handleCheckboxChanged}
+                                      label="Enable login with credentials"/>
+                            <Checkbox id="enableGoogleLogin2"
+                                      name="enableGoogleLogin"
+                                      checked={application.enableGoogleLogin}
+                                      onChange={handleCheckboxChanged}
+                                      label="Enable login with Google"/>
+                            <Checkbox id="enableFacebookLogin2"
+                                      name="enableFacebookLogin"
+                                      checked={application.enableFacebookLogin}
+                                      onChange={handleCheckboxChanged}
+                                      label="Enable login with Facebook"/>
+                        </CheckboxGroup>
                         <div className="field button-group">
                             <div className="control">
                                 <button type="submit" className="button is-primary">Submit</button>

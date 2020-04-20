@@ -29,6 +29,8 @@
         <Content Include="ClientApp\src\assets\_variables.scss" />
         <Content Include="ClientApp\src\components\AdminRoute\AdminRoute.jsx" />
         <Content Include="ClientApp\src\components\AuthRoute\AuthRoute.jsx" />
+        <Content Include="ClientApp\src\components\CheckboxGroup\CheckboxGroup.jsx" />
+        <Content Include="ClientApp\src\components\Checkbox\Checkbox.jsx" />
         <Content Include="ClientApp\src\components\common.js" />
         <Content Include="ClientApp\src\components\forms.js" />
         <Content Include="ClientApp\src\components\Loader\Loader.jsx" />
