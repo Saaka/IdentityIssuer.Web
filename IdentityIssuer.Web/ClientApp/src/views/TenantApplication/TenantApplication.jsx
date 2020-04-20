@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Loader} from "components/common";
-import {TextInput} from "components/forms";
+import {TextInput, NumberInput} from "components/forms";
 import "./TenantApplication.scss";
 
 function TenantApplication(props) {
@@ -89,54 +89,30 @@ function TenantApplication(props) {
                                    value={application.tenantCode}
                                    onChange={handleInputChange}
                                    error="Three letter tenant code is required" />
-                        <div className="field">
-                            <label className="label">Allowed origin</label>
-                            <div className="control">
-                                <input id="allowedOrigin"
-                                       name="allowedOrigin"
-                                       required
-                                       className="input"
-                                       type="text"
-                                       maxLength="128"
-                                       value={application.allowedOrigin}
-                                       onChange={handleInputChange}/>
-                                <div className="control-error">Set valid origin that will use your tokens.</div>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Token secret</label>
-                            <div className="control">
-                                <input id="tokenSecret"
-                                       name="tokenSecret"
-                                       required
-                                       className="input"
-                                       type="text"
-                                       maxLength="256"
-                                       value={application.tokenSecret}
-                                       onChange={handleInputChange}/>
-                                <div className="control-error">
-                                    Valid token secret is required (max length is 256 characters)
-                                </div>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Token expiration in minutes</label>
-                            <div className="control">
-                                <input id="tokenExpirationInMinutes"
-                                       name="tokenExpirationInMinutes"
-                                       required
-                                       className="input"
-                                       type="number"
-                                       step="1"
-                                       min="1"
-                                       max="44640"
-                                       checked={application.tokenExpirationInMinutes}
-                                       onClick={handleInputChange}/>
-                                <div className="control-error">
-                                    Expiration date for your tokens. Max value is 44640 (one month)
-                                </div>
-                            </div>
-                        </div>
+                        <TextInput label="Allowed origin"
+                                   id="allowedOrigin"
+                                   name="allowedOrigin"
+                                   required
+                                   maxLength="128"
+                                   value={application.allowedOrigin}
+                                   onChange={handleInputChange}
+                                   error="Set valid origin that will use your tokens" />
+                        <TextInput label="Token secret"
+                                   id="tokenSecret"
+                                   name="tokenSecret"
+                                   required
+                                   maxLength="256"
+                                   value={application.tokenSecret}
+                                   onChange={handleInputChange}
+                                   error="Valid token secret is required (max length is 256 characters)" />
+                        <NumberInput label="Token expiration in minutes"
+                                   id="tokenExpirationInMinutes1"
+                                   name="tokenExpirationInMinutes"
+                                   required
+                                   maxLength="256"
+                                   value={application.tokenExpirationInMinutes}
+                                   onChange={handleInputChange}
+                                   error="Expiration date for your tokens. Max value is 44640 (one month)" />
                         <div className="field">
                             <label className="label">Login methods</label>
                             <div className="control">
@@ -144,9 +120,6 @@ function TenantApplication(props) {
                                     <input id="enableCredentialsLogin"
                                            name="enableCredentialsLogin"
                                            type="checkbox"
-                                           step="1"
-                                           min="1"
-                                           max="44640"
                                            checked={application.enableCredentialsLogin}
                                            onClick={handleCheckboxChanged}/>
                                     Enable login with credentials
@@ -157,9 +130,6 @@ function TenantApplication(props) {
                                     <input id="enableGoogleLogin"
                                            name="enableGoogleLogin"
                                            type="checkbox"
-                                           step="1"
-                                           min="1"
-                                           max="44640"
                                            checked={application.enableGoogleLogin}
                                            onClick={handleCheckboxChanged}/>
                                     Enable login with Google
@@ -170,9 +140,6 @@ function TenantApplication(props) {
                                     <input id="enableFacebookLogin"
                                            name="enableFacebookLogin"
                                            type="checkbox"
-                                           step="1"
-                                           min="1"
-                                           max="44640"
                                            checked={application.enableFacebookLogin}
                                            onClick={handleCheckboxChanged}/>
                                     Enable login with Facebook

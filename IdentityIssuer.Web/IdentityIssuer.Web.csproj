@@ -34,6 +34,7 @@
         <Content Include="ClientApp\src\components\Loader\Loader.jsx" />
         <Content Include="ClientApp\src\components\Loader\Loader.scss" />
         <Content Include="ClientApp\src\components\navigation.js" />
+        <Content Include="ClientApp\src\components\NumberInput\NumberInput.jsx" />
         <Content Include="ClientApp\src\components\TextInput\TextInput.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.jsx" />
         <Content Include="ClientApp\src\layouts\App\App.scss" />
