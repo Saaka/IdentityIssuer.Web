@@ -4,7 +4,6 @@ import {TextInput, NumberInput, CheckboxGroup, Checkbox, Form} from "components/
 import "./TenantApplication.scss";
 
 function TenantApplication(props) {
-    const [isSubmitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [application, setApplication] = useState({
         tenantName: "",
@@ -39,9 +38,7 @@ function TenantApplication(props) {
     }
 
     function submitForm(ev) {
-        ev.preventDefault();
         setError({isError: false, message: ""});
-        setSubmitted(true);
         let formIsValid = ev.target.checkValidity();
         if (formIsValid) {
             alert("OK");
@@ -54,8 +51,7 @@ function TenantApplication(props) {
                 <h1 className="is-size-4 form-title">Apply for tenant</h1>
                 <div className="notification">
                     <Form name="tenantApplicationForm"
-                          onSubmit={(ev) => submitForm(ev)}
-                          isSubmitted={isSubmitted}>
+                          onSubmit={(ev) => submitForm(ev)}>
                         <TextInput label="Owner email"
                                    id="ownerEmail"
                                    name="ownerEmail"

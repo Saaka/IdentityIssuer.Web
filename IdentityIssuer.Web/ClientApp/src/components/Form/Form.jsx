@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 
 function Form(props) {
-    // const [isSubmitted, setSubmitted] = useState(false);
+     const [isSubmitted, setSubmitted] = useState(false);
 
     function renderComponents() {
         const children = React.Children.map(props.children, child => {
                 if(typeof child.type === "string")
                     return child;
-                return React.cloneElement(child, {isSubmitted: props.isSubmitted});
+                return React.cloneElement(child, {isSubmitted: isSubmitted});
             }
         );
 
@@ -15,13 +15,20 @@ function Form(props) {
             <>{children}</>
         )
     }
+    
+    function onFormSubmit(ev) {
+        ev.preventDefault();
+        setSubmitted(true);
 
-    const getFormClass = () => props.isSubmitted ? "is-validated" : "";
+        props.onSubmit(ev);
+    }
+
+    const getFormClass = () => isSubmitted ? "is-validated" : "";
     return (
         <form name={props.name}
               noValidate
               className={getFormClass()}
-              onSubmit={props.onSubmit}>
+              onSubmit={onFormSubmit}>
             {renderComponents()}
         </form>
     );
