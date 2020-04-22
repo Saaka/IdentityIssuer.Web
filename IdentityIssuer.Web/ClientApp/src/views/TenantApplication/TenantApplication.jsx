@@ -48,16 +48,14 @@ function TenantApplication(props) {
         }
     }
 
-    const getFormClass = () => isSubmitted ? "is-validated" : "";
     return (
         <section className="section">
             <div className="container tenant-application-container">
                 <h1 className="is-size-4 form-title">Apply for tenant</h1>
                 <div className="notification">
-                    <form name="tenantApplicationForm"
+                    <Form name="tenantApplicationForm"
                           onSubmit={(ev) => submitForm(ev)}
-                          noValidate
-                          className={getFormClass()}>
+                          isSubmitted={isSubmitted}>
                         <TextInput label="Owner email"
                                    id="ownerEmail"
                                    name="ownerEmail"
@@ -109,7 +107,6 @@ function TenantApplication(props) {
                                      error="Expiration date for your tokens. Max value is 44640 (one month)"/>
                         <CheckboxGroup label="Login methods"
                                        id="loginMethods"
-                                       isSubmitted={isSubmitted}
                                        oneRequired
                                        error="At least one login method is required">
                             <Checkbox id="enableCredentialsLogin2"
@@ -136,7 +133,7 @@ function TenantApplication(props) {
                                 {error.isError ? <p className="help is-danger">Error: {error.message}</p> : ""}
                             </div>
                         </div>
-                    </form>
+                    </Form>
                 </div>
             </div>
         </section>
