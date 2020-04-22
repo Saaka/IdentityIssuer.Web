@@ -33,6 +33,7 @@
         <Content Include="ClientApp\src\components\Checkbox\Checkbox.jsx" />
         <Content Include="ClientApp\src\components\common.js" />
         <Content Include="ClientApp\src\components\forms.js" />
+        <Content Include="ClientApp\src\components\Form\Form.jsx" />
         <Content Include="ClientApp\src\components\Loader\Loader.jsx" />
         <Content Include="ClientApp\src\components\Loader\Loader.scss" />
         <Content Include="ClientApp\src\components\navigation.js" />

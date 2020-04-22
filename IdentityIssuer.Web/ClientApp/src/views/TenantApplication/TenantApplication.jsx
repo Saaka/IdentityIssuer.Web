@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Loader} from "components/common";
-import {TextInput, NumberInput, CheckboxGroup, Checkbox} from "components/forms";
+import {TextInput, NumberInput, CheckboxGroup, Checkbox, Form} from "components/forms";
 import "./TenantApplication.scss";
 
 function TenantApplication(props) {
