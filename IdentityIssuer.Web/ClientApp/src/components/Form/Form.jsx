@@ -1,21 +1,17 @@
 import React, {useEffect, useState} from "react";
 
 function Form(props) {
-     const [isSubmitted, setSubmitted] = useState(false);
+    const [isSubmitted, setSubmitted] = useState(false);
 
     function renderComponents() {
-        const children = React.Children.map(props.children, child => {
-                if(typeof child.type === "string")
-                    return child;
-                return React.cloneElement(child, {isSubmitted: isSubmitted});
-            }
-        );
+        const children = React.Children.map(props.children, child =>
+            typeof child.type === "string"
+                ? child
+                : React.cloneElement(child, {isSubmitted: isSubmitted}));
 
-        return (
-            <>{children}</>
-        )
+        return (<>{children}</>)
     }
-    
+
     function onFormSubmit(ev) {
         ev.preventDefault();
         setSubmitted(true);
