@@ -1,8 +1,7 @@
-import {AuthHttpService, HttpService, Constants, UserTokenService, TenantService} from "Services";
+import {AuthHttpService, HttpService, Constants, UserTokenService} from "Services";
 
 export class AuthService {
     tokenService = new UserTokenService();
-    tenantService = new TenantService();
     authHttpService = new AuthHttpService();
     httpService = new HttpService();
 
@@ -30,8 +29,6 @@ export class AuthService {
             .setToken(resp.data.token);
         let authData = this.tokenService
             .getTokenData();
-        this.tenantService
-            .setTenant(authData.tenant);
 
         return this.getUserFromTokenData(authData);
     };

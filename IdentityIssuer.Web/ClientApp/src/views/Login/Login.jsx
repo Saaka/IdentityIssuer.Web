@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import queryString from "query-string";
-import {TenantService, AuthService, UserTokenService} from "Services";
+import {ConfigService, AuthService} from "Services";
 import {Loader} from "components/common";
 import "./Login.scss";
 
 function Login(props) {
-    const tenantService = new TenantService();
+    const config = new ConfigService();
     const authService = new AuthService();
-    const userTokenService = new UserTokenService();
     const [credentials, setCredentials] = useState({
         password: "",
         email: "",
@@ -28,7 +27,7 @@ function Login(props) {
     }, []);
 
     function initCredentials() {
-        let tenantCode = tenantService.getTenant();
+        let tenantCode = config.AdminTenantCode;
         if (!!tenantCode)
             setCredentials(state => ({
                 ...state,
@@ -95,21 +94,6 @@ function Login(props) {
                           onSubmit={(ev) => submitLogin(ev)}
                           noValidate
                           className={getFormClass()}>
-                        <div className="field">
-                            <label className="label">Tenant Code</label>
-                            <div className="control">
-                                <input id="tenantCode"
-                                       name="tenantCode"
-                                       required
-                                       className="input"
-                                       type="text"
-                                       minLength="3"
-                                       maxLength="3"
-                                       value={credentials.tenantCode}
-                                       onChange={handleCredentialsChange}/>
-                                <div className="control-error">Three letter tenant code is required.</div>
-                            </div>
-                        </div>
                         <div className="field">
                             <label className="label">User email</label>
                             <div className="control">

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Route, Redirect} from "react-router-dom";
-import {AuthService, TenantService} from "Services";
+import {AuthService, ConfigService} from "Services";
 import {App} from "layouts/exports";
 import {RouteNames} from "routes/names";
 import {Loader} from "components/common";
@@ -8,14 +8,13 @@ import {Login, Logout} from "views/exports";
 
 function Index(props) {
     const authService = new AuthService();
-    const tenantService = new TenantService();
+    const config = new ConfigService();
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState({isLoggedIn: false});
 
     useEffect(() => {
-        let tenantCode = tenantService.getTenant();
         if (authService.isLoggedIn())
-            loadUserData(tenantCode);
+            loadUserData(config.AdminTenantCode);
         else {
             removeUser();
             hideLoader();

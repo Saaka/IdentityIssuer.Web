@@ -57,7 +57,6 @@
         <Content Include="ClientApp\src\services\HttpService.js" />
         <Content Include="ClientApp\src\services\styling\ThemeHelper.js" />
         <Content Include="ClientApp\src\services\styling\themes.js" />
-        <Content Include="ClientApp\src\services\TenantService.js" />
         <Content Include="ClientApp\src\services\UserTokenService.js" />
         <Content Include="ClientApp\src\views\About\About.jsx" />
         <Content Include="ClientApp\src\views\Dashboard\Dashboard.jsx" />
